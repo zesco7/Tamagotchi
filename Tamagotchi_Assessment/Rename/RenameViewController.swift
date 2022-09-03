@@ -1,16 +1,14 @@
 //
-//  MainViewController.swift
+//  RenameViewController.swift
 //  Tamagotchi_Assessment
 //
-//  Created by Mac Pro 15 on 2022/07/27.
+//  Created by Mac Pro 15 on 2022/09/03.
 //
 
 import UIKit
 
-class MainViewController: UIViewController {
+class RenameViewController: UIViewController {
 
-    static var idenifier = "MainViewController"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
