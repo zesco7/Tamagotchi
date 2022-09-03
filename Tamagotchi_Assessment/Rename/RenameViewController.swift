@@ -9,21 +9,18 @@ import UIKit
 
 class RenameViewController: UIViewController {
 
+    @IBOutlet weak var renameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "대장님 이름 정하기"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc //이름저장 추가위치
+    func rightBarButtonItemClicked() {
+        //CharacterDetailViewController: 네비타이틀, 말풍선
+        //SettingTableViewController: 내이름 설정하기
     }
-    */
-
 }

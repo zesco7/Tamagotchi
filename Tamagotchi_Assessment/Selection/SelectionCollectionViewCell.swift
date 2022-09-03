@@ -14,4 +14,8 @@ class SelectionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var characterImageView: UIImageView!
     @IBOutlet weak var characterNameLabel: UILabel!
     
+    func configureCell() {
+        characterNameLabel.labelFontAttribute()
+        characterNameLabel.labelBorderAttribute()
+    }
 }
