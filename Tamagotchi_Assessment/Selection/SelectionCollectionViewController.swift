@@ -42,6 +42,8 @@ class SelectionCollectionViewController: UICollectionViewController {
         cell.characterNameLabel.text = dataInfo.name
         cell.characterImageView.image = UIImage(named: dataInfo.image)
         
+        
+        
         /*
         if indexPath.item == 0 {
             cell.characterNameLabel.text = characterNameArray[0]
@@ -70,9 +72,18 @@ class SelectionCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let data = characterData.characterGeneralData[indexPath.item] //!!
+        UserDefaults.standard.set(data.image, forKey: "characterImage")
+        UserDefaults.standard.set(data.name, forKey: "characterName")
+        
+        if indexPath.item <= 2 {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CharaterPopUpViewController") as! CharaterPopUpViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+        } else {
+            return
+        }
     }
 }

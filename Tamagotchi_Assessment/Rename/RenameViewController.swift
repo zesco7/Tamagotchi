@@ -7,18 +7,31 @@
 
 import UIKit
 
+/*질문
+ -. 왜 UserDefaults.standard.string(forKey: "rename")이 옵셔널인지?
+ 
+ */
 class RenameViewController: UIViewController {
 
     @IBOutlet weak var renameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "대장님 이름 정하기"
+        navigationItem.title = "\(UserDefaults.standard.string(forKey: "rename")!)님 이름 정하기"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         view.backgroundColor = .backgroundColor
         
         renameTextFieldAttribute()
-
+        
+        renameTextField.text = UserDefaults.standard.string(forKey: "rename")
+    }
+    
+    @objc //이름저장 추가위치
+    func rightBarButtonItemClicked() {
+        UserDefaults.standard.set(renameTextField.text, forKey: "rename")
+        
+        //CharacterDetailViewController: 네비타이틀, 말풍선
+        //SettingTableViewController: 내이름 설정하기
     }
     
     func renameTextFieldAttribute() {
@@ -30,9 +43,8 @@ class RenameViewController: UIViewController {
         renameTextField.textFieldFontAttribute()
     }
     
-    @objc //이름저장 추가위치
-    func rightBarButtonItemClicked() {
-        //CharacterDetailViewController: 네비타이틀, 말풍선
-        //SettingTableViewController: 내이름 설정하기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
+    
 }

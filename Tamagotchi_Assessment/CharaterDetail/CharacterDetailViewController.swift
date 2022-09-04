@@ -28,30 +28,34 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var riceAddButton: UIButton!
     @IBOutlet weak var waterAddButton: UIButton!
     
+    var characterResponseArray = ["복습안했으면 빨리하세요. 복습해야 실력이 늘어요.", "만나서 반갑습니다.", "주말 잘보내세요."]
     var feedingCalculatorArray = [0, 0]
+    var characterLevel = (UserDefaults.standard.integer(forKey: "riceCount") / 5) + (UserDefaults.standard.integer(forKey: "waterCount") / 2)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .backgroundColor
+        navigationItem.title = "님의 다마고치"
+        characterImageView.image = UIImage(named: UserDefaults.standard.string(forKey: "characterImage") ?? "star.fill") //!!
         
-        characterImageView.image = UIImage(named: "1-6")
-        
-        navigationItemAttribute(nickname: "대장")
+        navigationItemAttribute(nickname: "\(UserDefaults.standard.string(forKey: "rename")!)")
         characterResponseAttribute()
         characterNameLabelAttribute()
-        characterLevelLabelAttribute()
+        characterLevelLabelAttribute(level: characterLevel, riceCount: characterLevel, waterCount: characterLevel)
         feedingObjectsAttribute(textFieldName: riceTextField, buttonName: riceAddButton, placeholder: "밥주세용", buttonTitle: " 밥먹기", buttonImage: "drop.circle")
         feedingObjectsAttribute(textFieldName: waterTextField, buttonName: waterAddButton, placeholder: "물주세용", buttonTitle: " 물먹기", buttonImage: "leaf.circle")
         
         print(feedingCalculatorArray)
-    
     }
     
     func navigationItemAttribute(nickname: String) {
+
         navigationItem.title = "\(nickname)님의 다마고치"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        navigationItem.backButtonTitle = ""
+        navigationController?.navigationBar.tintColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         }
     
     @objc
@@ -63,19 +67,19 @@ class CharacterDetailViewController: UIViewController {
 
     func characterResponseAttribute() {
         characterResponseImageView.image = UIImage(named: "bubble")
-        characterResponseLabel.text = "복습안했으면 빨리하세요. 복습해야 실력이 늘어요."
+        characterResponseLabel.text = characterResponseArray[Int.random(in: 0...characterResponseArray.count - 1)] + " \(UserDefaults.standard.string(forKey: "rename")!)님."
         characterResponseLabel.labelFontAttribute()
         characterResponseLabel.numberOfLines = 0
     }
     
     func characterNameLabelAttribute() {
-        characterNameLabel.text = "방실방실 다마고치"
+        characterNameLabel.text = UserDefaults.standard.string(forKey: "characterName")
         characterNameLabel.labelFontAttribute()
         characterNameLabel.labelBorderAttribute()
     }
     
-    func characterLevelLabelAttribute() {
-        characterLevelLabel.text = "LV1, 밥알 n개, 물방울 n개"
+    func characterLevelLabelAttribute(level: Int, riceCount: Int, waterCount: Int) {
+        characterLevelLabel.text = "LV\(characterLevel), 밥알 n개, 물방울 n개"
         characterLevelLabel.labelFontAttribute()
     }
     
@@ -101,12 +105,14 @@ class CharacterDetailViewController: UIViewController {
     @IBAction func riceAddButtonClicked(_ sender: UIButton) {
         feedingCalculatorArray[sender.tag] += 1
         riceTextField.text = "밥알 \(feedingCalculatorArray[sender.tag]) 개"
+        UserDefaults.standard.set(feedingCalculatorArray[sender.tag], forKey: "riceCount")
         print(feedingCalculatorArray)
     }
     
     @IBAction func waterAddButtonClicked(_ sender: UIButton) {
         feedingCalculatorArray[sender.tag] += 1
         waterTextField.text = "물방울 \(feedingCalculatorArray[sender.tag]) 개"
+        UserDefaults.standard.set(feedingCalculatorArray[sender.tag], forKey: "waterCount")
         print(feedingCalculatorArray)
     }
     

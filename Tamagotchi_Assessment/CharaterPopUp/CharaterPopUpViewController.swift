@@ -12,6 +12,7 @@ import UIKit
  -. 취소버튼 cornerRadius 적용안되는 이유?
  -. 취소, 시작하기 버튼 위 구분선 적용하는 방법?
  -. SelectionCollectionViewController에서 선택한 캐릭터 정보를 어떻게 가져와서 화면에 표시하는지? sender.tag?
+ -. popUpCancelButtonClicked 액션실행하면 이전화면이 아니라 첫화면으로 전환하도록 해야하지 않을까?
  */
 
 class CharaterPopUpViewController: UIViewController {
@@ -39,7 +40,7 @@ class CharaterPopUpViewController: UIViewController {
         
         popUpCharacterIntroductionAttribute()
         
-        popUpCharacterImageView.image = UIImage(named: "1-6")
+        popUpCharacterImageView.image = UIImage(named: UserDefaults.standard.string(forKey: "characterImage") ?? "star.fill") //!!
         popUpCharacterNameLabelAttribute()
         
         popUpButtonAttribute()
@@ -53,7 +54,7 @@ class CharaterPopUpViewController: UIViewController {
     }
     
     func popUpCharacterNameLabelAttribute() {
-        popUpCharacterNameLabel.text = "방실방실 다마고치"
+        popUpCharacterNameLabel.text = UserDefaults.standard.string(forKey: "characterName")
         popUpCharacterNameLabel.textAlignment = .center
         popUpCharacterNameLabel.font = .systemFont(ofSize: 16, weight: .bold)
         popUpCharacterNameLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
@@ -70,6 +71,14 @@ class CharaterPopUpViewController: UIViewController {
         
     }
     
+    //
+    @IBAction func popUpCancelButtonClicked(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
+        let navi = UINavigationController(rootViewController: vc)
+        navi.modalPresentationStyle = .fullScreen
+        present(navi, animated: true)
+    }
     
     @IBAction func popUpStartButtonClicked(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main", bundle: nil)

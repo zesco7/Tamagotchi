@@ -17,5 +17,6 @@ class SelectionCollectionViewCell: UICollectionViewCell {
     func configureCell() {
         characterNameLabel.labelFontAttribute()
         characterNameLabel.labelBorderAttribute()
+        
     }
 }

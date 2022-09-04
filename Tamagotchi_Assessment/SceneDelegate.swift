@@ -7,16 +7,31 @@
 
 import UIKit
 
+/*질문
+ -. SceneDelegate이 아니라 UserDefaults.standard.set(false, forKey: "First")를 저장했는데 왜 검정화면이 뜨는지?
+ 
+ */
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        guard let scene = (scene as? UIWindowScene) else { return }
+        
+        /*데이터 초기화시 Selection화면으로 전환
+        window = UIWindow(windowScene: scene)
+        
+        if UserDefaults.standard.bool(forKey: "Settings") {
+            let sb = UIStoryboard(name: "Trend", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
+            window?.rootViewController = vc
+        } else {
+            
+        }
+        */
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
