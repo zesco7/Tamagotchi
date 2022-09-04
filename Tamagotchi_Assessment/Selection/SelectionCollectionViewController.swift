@@ -11,6 +11,7 @@ private let reuseIdentifier = "Cell"
 
 class SelectionCollectionViewController: UICollectionViewController {
     
+    let characterData = CharacterData()
     var characterNameArray = ["따끔따끔 다마고치", "방실방실 다마고치", "반짝반짝 다마고치", "준비중이에요"]
     var characterImageArray = ["1-6", "2-6", "3-6", "noImage"]
 
@@ -31,14 +32,19 @@ class SelectionCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return characterData.characterGeneralData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SelectionCollectionViewCell.identifier, for: indexPath) as! SelectionCollectionViewCell
         
+        let dataInfo = characterData.characterGeneralData[indexPath.row]
+        cell.characterNameLabel.text = dataInfo.name
+        cell.characterImageView.image = UIImage(named: dataInfo.image)
+        
+        /*
         if indexPath.item == 0 {
-        cell.characterNameLabel.text = characterNameArray[0]
+            cell.characterNameLabel.text = characterNameArray[0]
         } else if indexPath.item == 1 {
             cell.characterNameLabel.text = characterNameArray[1]
         } else if indexPath.item == 2 {
@@ -56,6 +62,7 @@ class SelectionCollectionViewController: UICollectionViewController {
         } else {
             cell.characterImageView.image = UIImage(named: characterImageArray[3])
         }
+        */
         
         cell.configureCell()
 

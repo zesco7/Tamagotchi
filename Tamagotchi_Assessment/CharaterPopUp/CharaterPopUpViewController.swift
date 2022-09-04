@@ -7,6 +7,13 @@
 
 import UIKit
 
+/*질문
+ -. 팝업뷰 뜰 때 투명배경색 적용?
+ -. 취소버튼 cornerRadius 적용안되는 이유?
+ -. 취소, 시작하기 버튼 위 구분선 적용하는 방법?
+ -. SelectionCollectionViewController에서 선택한 캐릭터 정보를 어떻게 가져와서 화면에 표시하는지? sender.tag?
+ */
+
 class CharaterPopUpViewController: UIViewController {
 
     @IBOutlet weak var popUpView: UIView!
@@ -17,11 +24,52 @@ class CharaterPopUpViewController: UIViewController {
     @IBOutlet weak var popUpCancelButton: UIButton!
     @IBOutlet weak var popUpStartButton: UIButton!
     
+    let characterData = CharacterData()
+    
+    var characterIntro = ["저는 따끔따끔 다마고치입니다. 저를 키워보시겠어요? 물만 주면 알아서 잘크는 아이랍니다. 호호.", "저는 방실방실 다마고치입니다. 저를 키워보시겠어요? 밥만 주면 알아서 잘크는 아이랍니다. 호호.", "저는 반짝반짝 다마고치입니다. 저는 물도 밥도 필요없어요. 그저 선택만해주세요..."]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.backgroundColor = .init(white: 0.3, alpha: 0.3)
+        popUpView.layer.cornerRadius = 10
+        popUpView.backgroundColor = .backgroundColor
+        
+        popUpDivisionLineView.backgroundColor = .systemGray3
+        
+        popUpCharacterIntroductionAttribute()
+        
+        popUpCharacterImageView.image = UIImage(named: "1-6")
+        popUpCharacterNameLabelAttribute()
+        
+        popUpButtonAttribute()
+        print("1")
+    }
+    
+    func popUpCharacterIntroductionAttribute() {
+        popUpCharacterIntroduction.text = characterIntro[0]
+        popUpCharacterIntroduction.numberOfLines = 0
+        popUpCharacterIntroduction.labelFontAttribute()
+    }
+    
+    func popUpCharacterNameLabelAttribute() {
+        popUpCharacterNameLabel.text = "방실방실 다마고치"
+        popUpCharacterNameLabel.textAlignment = .center
+        popUpCharacterNameLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        popUpCharacterNameLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
+        popUpCharacterNameLabel.labelBorderAttribute()
+    }
+    
+    func popUpButtonAttribute() {
+        popUpCancelButton.setTitle("취소", for: .normal)
+        popUpCancelButton.backgroundColor = .systemGray3
+        popUpCancelButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
+        popUpStartButton.setTitle("시작하기", for: .normal)
+        popUpStartButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
+        
         
     }
+    
     
     @IBAction func popUpStartButtonClicked(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Main", bundle: nil)

@@ -10,4 +10,5 @@ import Foundation
 struct CharacterInformation {
     var image: String
     var name: String
+    var intro: String
 }
