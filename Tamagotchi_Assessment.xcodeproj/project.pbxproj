@@ -13,6 +13,8 @@
 		9801639828C364B700B77230 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801639728C364B700B77230 /* UIButton+Extension.swift */; };
 		9801639A28C3661600B77230 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801639928C3661600B77230 /* UITextField+Extension.swift */; };
 		98581A0328C464060057FE3A /* CharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98581A0228C464060057FE3A /* CharacterData.swift */; };
+		98581A0528C4AB470057FE3A /* SettingList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98581A0428C4AB470057FE3A /* SettingList.swift */; };
+		98581A0728C4ABA40057FE3A /* SettingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98581A0628C4ABA40057FE3A /* SettingData.swift */; };
 		9863B1052891310A0080E247 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863B1042891310A0080E247 /* AppDelegate.swift */; };
 		9863B1072891310A0080E247 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863B1062891310A0080E247 /* SceneDelegate.swift */; };
 		9863B1092891310A0080E247 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9863B1082891310A0080E247 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 		9801639728C364B700B77230 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		9801639928C3661600B77230 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		98581A0228C464060057FE3A /* CharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterData.swift; sourceTree = "<group>"; };
+		98581A0428C4AB470057FE3A /* SettingList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingList.swift; sourceTree = "<group>"; };
+		98581A0628C4ABA40057FE3A /* SettingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingData.swift; sourceTree = "<group>"; };
 		9863B1012891310A0080E247 /* Tamagotchi_Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi_Assessment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9863B1042891310A0080E247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9863B1062891310A0080E247 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 			children = (
 				98DAADC228C3302D00720407 /* SettingTableViewController.swift */,
 				98DAADC628C330FA00720407 /* SettingTableViewCell.swift */,
+				98581A0428C4AB470057FE3A /* SettingList.swift */,
+				98581A0628C4ABA40057FE3A /* SettingData.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -227,7 +233,9 @@
 			files = (
 				9801639A28C3661600B77230 /* UITextField+Extension.swift in Sources */,
 				98DAADBD28C32F8200720407 /* CharacterDetailViewController.swift in Sources */,
+				98581A0528C4AB470057FE3A /* SettingList.swift in Sources */,
 				98DAADC528C330DF00720407 /* SelectionCollectionViewCell.swift in Sources */,
+				98581A0728C4ABA40057FE3A /* SettingData.swift in Sources */,
 				98DAADC328C3302D00720407 /* SettingTableViewController.swift in Sources */,
 				9801639228C35A1B00B77230 /* UIColor+Extension.swift in Sources */,
 				98581A0328C464060057FE3A /* CharacterData.swift in Sources */,

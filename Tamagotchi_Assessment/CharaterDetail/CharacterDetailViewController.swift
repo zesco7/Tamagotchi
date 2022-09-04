@@ -12,6 +12,7 @@ import UIKit
  -. buttonTitle font size extension 적용안되는 이유?
  -. UITapGestureRecognizer 왜 작동안하는지? -> UITapGestureRecognizer안돼서 touchesBegan으로 처리함
  -. 밥,물버튼눌러서 텍스트필드에 값이 있을 때 텍스트필드값을 키보드로 입력했을때 값이 제대로 변경되게 하는법?
+ -. 키보드타입 numberpad로 하면 키보드에 리턴버튼이 없는데 리턴값은 어떻게 전달하는지?
  
  */
 
@@ -36,7 +37,7 @@ class CharacterDetailViewController: UIViewController {
         
         characterImageView.image = UIImage(named: "1-6")
         
-        navigationItemAttribute()
+        navigationItemAttribute(nickname: "대장")
         characterResponseAttribute()
         characterNameLabelAttribute()
         characterLevelLabelAttribute()
@@ -47,10 +48,8 @@ class CharacterDetailViewController: UIViewController {
     
     }
     
-
-    
-    func navigationItemAttribute() {
-        navigationItem.title = "대장님의 다마고치"
+    func navigationItemAttribute(nickname: String) {
+        navigationItem.title = "\(nickname)님의 다마고치"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         navigationItem.rightBarButtonItem?.tintColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         }
