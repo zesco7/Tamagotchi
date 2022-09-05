@@ -138,7 +138,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUv-Z2-glD">
-                                <rect key="frame" x="124" y="583.5" width="166" height="22"/>
+                                <rect key="frame" x="165.5" y="583.5" width="83" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="DJo-WO-uOz"/>
                                 </constraints>
@@ -210,23 +210,46 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd6-E2-aNd">
+                                <rect key="frame" x="78" y="583.5" width="82.5" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="iVs-qF-m9T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoO-2D-87h">
+                                <rect key="frame" x="253.5" y="583.5" width="82.5" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="SQV-pU-vyE"/>
+                                    <constraint firstAttribute="width" constant="82.5" id="sAQ-71-1ba"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DIc-OW-26Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="9H2-FM-mak" firstAttribute="top" secondItem="EoO-2D-87h" secondAttribute="bottom" constant="5" id="0B8-FU-ede"/>
                             <constraint firstItem="Jxw-h4-RRt" firstAttribute="centerX" secondItem="fAa-tW-Kg3" secondAttribute="centerX" id="13S-KR-Skp"/>
                             <constraint firstItem="22K-vL-ym4" firstAttribute="width" secondItem="jAN-o2-pIB" secondAttribute="width" multiplier="0.5" id="2cR-4f-jF2"/>
-                            <constraint firstItem="bUv-Z2-glD" firstAttribute="width" secondItem="jAN-o2-pIB" secondAttribute="width" multiplier="0.4" id="6Uw-iU-Zgw"/>
+                            <constraint firstItem="bUv-Z2-glD" firstAttribute="width" secondItem="jAN-o2-pIB" secondAttribute="width" multiplier="0.2" id="6Uw-iU-Zgw"/>
                             <constraint firstItem="bUv-Z2-glD" firstAttribute="centerX" secondItem="DIc-OW-26Y" secondAttribute="centerX" id="BMb-fh-iS1"/>
                             <constraint firstItem="emn-Ui-Ie5" firstAttribute="top" secondItem="9H2-FM-mak" secondAttribute="bottom" constant="5" id="CSj-1i-yeq"/>
                             <constraint firstItem="Jxw-h4-RRt" firstAttribute="top" secondItem="fAa-tW-Kg3" secondAttribute="bottom" constant="5" id="Def-xQ-yTy"/>
                             <constraint firstItem="Jxw-h4-RRt" firstAttribute="width" secondItem="fAa-tW-Kg3" secondAttribute="width" id="G8g-kX-deg"/>
+                            <constraint firstItem="EoO-2D-87h" firstAttribute="leading" secondItem="bUv-Z2-glD" secondAttribute="trailing" constant="5" id="GW0-xL-WCi"/>
                             <constraint firstItem="xQa-gG-XCJ" firstAttribute="width" secondItem="22K-vL-ym4" secondAttribute="width" multiplier="0.9" id="GbF-ya-qs2"/>
+                            <constraint firstItem="Kd6-E2-aNd" firstAttribute="centerY" secondItem="bUv-Z2-glD" secondAttribute="centerY" id="NFo-YQ-D7G"/>
                             <constraint firstItem="9H2-FM-mak" firstAttribute="centerY" secondItem="fAa-tW-Kg3" secondAttribute="centerY" id="SAa-VP-Wa8"/>
                             <constraint firstItem="q2D-vF-wee" firstAttribute="width" secondItem="jAN-o2-pIB" secondAttribute="width" multiplier="0.5" id="SSQ-IE-suw"/>
                             <constraint firstItem="emn-Ui-Ie5" firstAttribute="leading" secondItem="Jxw-h4-RRt" secondAttribute="trailing" constant="10" id="W3G-tj-jGq"/>
                             <constraint firstItem="fAa-tW-Kg3" firstAttribute="width" secondItem="jAN-o2-pIB" secondAttribute="width" multiplier="0.4" id="XYu-cn-1gX"/>
+                            <constraint firstItem="Kd6-E2-aNd" firstAttribute="width" secondItem="bUv-Z2-glD" secondAttribute="width" id="aEf-ac-ZwW"/>
                             <constraint firstItem="emn-Ui-Ie5" firstAttribute="centerY" secondItem="Jxw-h4-RRt" secondAttribute="centerY" id="acb-ue-YHx"/>
                             <constraint firstItem="06I-u1-oRL" firstAttribute="centerX" secondItem="DIc-OW-26Y" secondAttribute="centerX" id="agO-HL-j2E"/>
                             <constraint firstItem="q2D-vF-wee" firstAttribute="centerY" secondItem="jAN-o2-pIB" secondAttribute="centerY" id="bEb-8Z-4kl"/>
@@ -239,6 +262,7 @@
                             <constraint firstItem="22K-vL-ym4" firstAttribute="centerX" secondItem="DIc-OW-26Y" secondAttribute="centerX" id="i1l-FW-hNW"/>
                             <constraint firstItem="bUv-Z2-glD" firstAttribute="top" secondItem="06I-u1-oRL" secondAttribute="bottom" constant="5" id="ieY-ex-Eos"/>
                             <constraint firstItem="06I-u1-oRL" firstAttribute="top" secondItem="q2D-vF-wee" secondAttribute="bottom" constant="5" id="lVh-7V-V4c"/>
+                            <constraint firstItem="bUv-Z2-glD" firstAttribute="leading" secondItem="Kd6-E2-aNd" secondAttribute="trailing" constant="5" id="mnK-Sv-sUS"/>
                             <constraint firstItem="q2D-vF-wee" firstAttribute="top" secondItem="22K-vL-ym4" secondAttribute="bottom" constant="5" id="sQB-Sl-8ZM"/>
                             <constraint firstItem="fAa-tW-Kg3" firstAttribute="top" secondItem="bUv-Z2-glD" secondAttribute="bottom" constant="5" id="vgw-Lv-zFL"/>
                         </constraints>
@@ -248,14 +272,16 @@
                     </view>
                     <connections>
                         <outlet property="characterImageView" destination="q2D-vF-wee" id="XP7-AY-J2A"/>
-                        <outlet property="characterLevelLabel" destination="bUv-Z2-glD" id="seq-4z-ViC"/>
+                        <outlet property="characterLevelLabel" destination="Kd6-E2-aNd" id="QlF-Rt-u9N"/>
                         <outlet property="characterNameLabel" destination="06I-u1-oRL" id="7j8-eH-XhV"/>
                         <outlet property="characterResponseImageView" destination="22K-vL-ym4" id="5bb-89-YgO"/>
                         <outlet property="characterResponseLabel" destination="xQa-gG-XCJ" id="eFM-f8-0VA"/>
                         <outlet property="riceAddButton" destination="9H2-FM-mak" id="XyV-io-jh1"/>
                         <outlet property="riceTextField" destination="fAa-tW-Kg3" id="I77-ig-DpT"/>
+                        <outlet property="riceValue" destination="bUv-Z2-glD" id="uc1-Mi-BmO"/>
                         <outlet property="waterAddButton" destination="emn-Ui-Ie5" id="WEy-gK-ykS"/>
                         <outlet property="waterTextField" destination="Jxw-h4-RRt" id="eOm-Og-lZw"/>
+                        <outlet property="waterValue" destination="EoO-2D-87h" id="vUH-wb-ugp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYf-FB-FQP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

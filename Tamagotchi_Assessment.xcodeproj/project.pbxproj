@@ -21,6 +21,8 @@
 		9863B10C2891310A0080E247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10A2891310A0080E247 /* Main.storyboard */; };
 		9863B10E2891310B0080E247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10D2891310B0080E247 /* Assets.xcassets */; };
 		9863B1112891310B0080E247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10F2891310B0080E247 /* LaunchScreen.storyboard */; };
+		98D9986828C62B0A00DBA74F /* CharacterImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9986728C62B0A00DBA74F /* CharacterImageData.swift */; };
+		98D9986A28C62B2100DBA74F /* CharacterImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9986928C62B2100DBA74F /* CharacterImageName.swift */; };
 		98DAADB928C32F0900720407 /* SelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */; };
 		98DAADBB28C32F7200720407 /* CharaterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADBA28C32F7200720407 /* CharaterPopUpViewController.swift */; };
 		98DAADBD28C32F8200720407 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */; };
@@ -47,6 +49,8 @@
 		9863B10D2891310B0080E247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9863B1102891310B0080E247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9863B1122891310B0080E247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98D9986728C62B0A00DBA74F /* CharacterImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageData.swift; sourceTree = "<group>"; };
+		98D9986928C62B2100DBA74F /* CharacterImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageName.swift; sourceTree = "<group>"; };
 		98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		98DAADBA28C32F7200720407 /* CharaterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaterPopUpViewController.swift; sourceTree = "<group>"; };
 		98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +105,7 @@
 				9863B1062891310A0080E247 /* SceneDelegate.swift */,
 				9863B1082891310A0080E247 /* ViewController.swift */,
 				9863B10A2891310A0080E247 /* Main.storyboard */,
-				98DAADC828C3310500720407 /* Selection */,
+				98DAADC828C3310500720407 /* SelectionCollectionViewController */,
 				98DAADC928C3310A00720407 /* CharaterPopUp */,
 				98DAADCA28C3310C00720407 /* CharaterDetail */,
 				98DAADCB28C3310F00720407 /* Setting */,
@@ -114,7 +118,7 @@
 			path = Tamagotchi_Assessment;
 			sourceTree = "<group>";
 		};
-		98DAADC828C3310500720407 /* Selection */ = {
+		98DAADC828C3310500720407 /* SelectionCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */,
@@ -122,7 +126,7 @@
 				9801638628C34D6800B77230 /* CharacterInformation.swift */,
 				98581A0228C464060057FE3A /* CharacterData.swift */,
 			);
-			path = Selection;
+			path = SelectionCollectionViewController;
 			sourceTree = "<group>";
 		};
 		98DAADC928C3310A00720407 /* CharaterPopUp */ = {
@@ -137,6 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */,
+				98D9986728C62B0A00DBA74F /* CharacterImageData.swift */,
+				98D9986928C62B2100DBA74F /* CharacterImageName.swift */,
 			);
 			path = CharaterDetail;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 				98DAADBD28C32F8200720407 /* CharacterDetailViewController.swift in Sources */,
 				98581A0528C4AB470057FE3A /* SettingList.swift in Sources */,
 				98DAADC528C330DF00720407 /* SelectionCollectionViewCell.swift in Sources */,
+				98D9986A28C62B2100DBA74F /* CharacterImageName.swift in Sources */,
 				98581A0728C4ABA40057FE3A /* SettingData.swift in Sources */,
 				98DAADC328C3302D00720407 /* SettingTableViewController.swift in Sources */,
 				9801639228C35A1B00B77230 /* UIColor+Extension.swift in Sources */,
@@ -246,6 +253,7 @@
 				9801639628C3609500B77230 /* UILabel+Extension.swift in Sources */,
 				9801638728C34D6800B77230 /* CharacterInformation.swift in Sources */,
 				9863B1092891310A0080E247 /* ViewController.swift in Sources */,
+				98D9986828C62B0A00DBA74F /* CharacterImageData.swift in Sources */,
 				9863B1052891310A0080E247 /* AppDelegate.swift in Sources */,
 				9863B1072891310A0080E247 /* SceneDelegate.swift in Sources */,
 				98DAADBB28C32F7200720407 /* CharaterPopUpViewController.swift in Sources */,

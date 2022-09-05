@@ -73,11 +73,12 @@ class CharaterPopUpViewController: UIViewController {
     
     //
     @IBAction func popUpCancelButtonClicked(_ sender: UIButton) {
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate =  windowScene?.delegate as? SceneDelegate
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
-        let navi = UINavigationController(rootViewController: vc)
-        navi.modalPresentationStyle = .fullScreen
-        present(navi, animated: true)
+        sceneDelegate?.window?.rootViewController = vc
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
     
     @IBAction func popUpStartButtonClicked(_ sender: UIButton) {

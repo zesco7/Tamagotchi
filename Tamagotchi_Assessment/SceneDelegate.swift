@@ -19,7 +19,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        guard let scene = (scene as? UIWindowScene) else { return }
+        guard let scene = (scene as? UIWindowScene) else { return } //scene은 현재 화면에 보이는 부분을 의미함
+       /*
+        window = UIWindow(windowScene: scene)
+        
+        if UserDefaults.standard.bool(forKey: "Selection") {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+            window?.rootViewController = vc //윈도우에 뷰컨트롤러를 루트뷰로 사용하겠다
+        } else if UserDefaults.standard.bool(forKey: "Selection") {
+            let sb = UIStoryboard(name: "Search", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SearchTableViewController") as! SearchTableViewController
+            //window?.rootViewController = vc
+            window?.rootViewController = UINavigationController(rootViewController: vc) //네비게이션 컨트롤러 추가된 vc 표시 가능
+        }
+        window?.makeKeyAndVisible() //rootViewController인 vc를 시작화면에 보여줌
         
         /*데이터 초기화시 Selection화면으로 전환
         window = UIWindow(windowScene: scene)
@@ -31,6 +45,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             
         }
+        */
         */
     }
 
