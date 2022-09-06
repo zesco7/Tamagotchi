@@ -34,11 +34,18 @@ class CharacterDetailViewController: UIViewController {
     var feedingCalculatorArray = [0, 0]
     var feedingCalculatorTypedArray = [0, 0]
     var levelValue = 3
+    
+    var characterChange: CharacterInformation?
+    var characterString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageData = CharacterImageData()
         print(UserDefaults.standard.string(forKey: "characterName")!)
+        
+        
+        
+        
         
         /*//1!!Selection화면에서 저장된 캐릭터이름 값을 UserDefaults에 저장하여 조건문판단에 사용하는데 왜 조건적용이 안되는지?, 구조체로 값을 꺼내려고하면 셀재사용이 안되서 indexpath가 적용이 안되는데 값을 어떻게 꺼내오는지?
         if characterNameLabel.text == UserDefaults.standard.string(forKey: "characterName") {
@@ -84,6 +91,22 @@ class CharacterDetailViewController: UIViewController {
         characterResponseLabel.text = "\(characterResponseArray[Int.random(in: 0...characterResponseArray.count - 1)]) \(UserDefaults.standard.string(forKey: "rename")!)님."
         characterResponseLabel.labelFontAttribute()
         characterResponseLabel.numberOfLines = 0
+        
+        
+        characterNameLabel.text = characterNameLabel.text == characterChange?.name ? "이름변경됨" : characterChange?.name
+        
+        //characterImageView.image == UIImage(named: characterChange!.image)
+        
+        if characterImageView.image == UIImage(named: "1-1") {
+            characterImageView.image = UIImage(named: "2-1")
+        } else if characterImageView.image == UIImage(named: "2-1") {
+            characterImageView.image = UIImage(named: "3-1")
+        } else if characterImageView.image == UIImage(named: "3-1") {
+            characterImageView.image = UIImage(named: "1-1")
+        } else {
+    
+        }
+        
     }
 
     func navigationItemAttribute(nickname: String) {

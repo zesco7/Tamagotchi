@@ -8,7 +8,7 @@
 import UIKit
 /*질문
  -. alert함수 만들어서 else if indexPath.row == 2 에 넣으면 왜 실행 안되는지?
- -.1!! alert에서 ok버튼 눌렀을때 값을 어떻게 받아오는지? 그게 있어야 첫화면으로 넘길수있음.
+ -.1!! alert에서 ok버튼 눌렀을때 값을 어떻게 받아오는지? 그게 있어야 첫화면으로 넘길수있음 -> 해결: alert 뒤에 { (action) in } 사용
  -.2!! 인덱스가 정해져 있는데 characterImageView.image와 다른 값을 어떻게 UserDefaults에 다시 넣는지? characterImageView.image와 다른 값인걸 어떻게 구분하는지?
  
  */
@@ -56,27 +56,30 @@ class SettingTableViewController: UITableViewController, UIApplicationDelegate {
             sceneDelegate?.window?.rootViewController = navi
             sceneDelegate?.window?.makeKeyAndVisible()
             
+            vc.characterChange = characterData.characterGeneralData[indexPath.row]
+        
         } else if indexPath.row == 2 { //1!!데이터초기화
             let alert = UIAlertController(title: "데이터 초기화", message: "초기화 된 데이터는 복구할 수 없으니 참고해주세요. 초기화 하시겠어요?", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "취소", style: .cancel)
-            let ok = UIAlertAction(title: "네. 삭제할게요.", style: .default)
+            
+            //alert에서 ok버튼 눌렀을 때 첫화면 이동 + 데이터초기화(removeObject)
+            let ok = UIAlertAction(title: "네. 삭제할게요.", style: .default) { (action) in
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate =  windowScene?.delegate as? SceneDelegate
+                let sb = UIStoryboard(name: "Main", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
+                let navi = UINavigationController(rootViewController: vc)
+                sceneDelegate?.window?.rootViewController = navi
+                sceneDelegate?.window?.makeKeyAndVisible()
+                
+                UserDefaults.standard.removeObject(forKey: "riceCount")
+                UserDefaults.standard.removeObject(forKey: "waterCount")
+            }
             alert.addAction(cancel)
             alert.addAction(ok)
             present(alert, animated: true)
-            
-            /*코드)alert에서 ok버튼 눌렀을 때 첫화면 이동
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-            let sceneDelegate =  windowScene?.delegate as? SceneDelegate
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
-            let navi = UINavigationController(rootViewController: vc)
-            sceneDelegate?.window?.rootViewController = navi
-            sceneDelegate?.window?.makeKeyAndVisible()
-             */
-            
         } else {
             
-            return
         }
     }
     override func viewDidAppear(_ animated: Bool) {
