@@ -32,56 +32,32 @@ class CharacterDetailViewController: UIViewController {
     
     var characterResponseArray = ["복습안했으면 빨리하세요. 복습해야 실력이 늘어요.", "만나서 반갑습니다.", "주말 잘보내세요."]
     var feedingCalculatorArray = [0, 0]
-    var feedingCalculatorTypedArray = [0, 0]
-    var levelValue = 3
     
     var characterChange: CharacterInformation?
     var characterString: String?
+    var characterImageList: CharacterInformation?
+    var levelValue: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(UserDefaults.standard.string(forKey: "characterName")!)
-        
-        
-        
-        
-        
-        /*//1!!Selection화면에서 저장된 캐릭터이름 값을 UserDefaults에 저장하여 조건문판단에 사용하는데 왜 조건적용이 안되는지?, 구조체로 값을 꺼내려고하면 셀재사용이 안되서 indexpath가 적용이 안되는데 값을 어떻게 꺼내오는지?
-        if characterNameLabel.text == UserDefaults.standard.string(forKey: "characterName") {
-            if levelValue == 1 {
-                characterImageView.image = UIImage(named: "1-1")
-            } else if levelValue == 2 {
-                characterImageView.image = UIImage(named: "1-2")
-            } else if levelValue == 3 {
-                characterImageView.image = UIImage(named: "1-3")
-            } else if levelValue == 4 {
-                characterImageView.image = UIImage(named: "1-4")
-            }
-        }
-         */
-        
-        //var characterLevel = (UserDefaults.standard.integer(forKey: "riceCount") / 5) + (UserDefaults.standard.integer(forKey: "waterCount") / 2)
-        
         view.backgroundColor = .backgroundColor
         
+        characterLevelLabel.text = "LV"
+        riceValue.text = "밥알  개"
+        waterValue.text = "물방울  개"
+        
         navigationItemAttribute(nickname: "\(UserDefaults.standard.string(forKey: "rename")!)")
+        
+        //characterImageView.image = UIImage(named: characterImageList!.image) //characterImageList!.image가 아니면 랜덤으로 다른 이미지 나오게 해야함
+        
         characterImageView.image = UIImage(named: UserDefaults.standard.string(forKey: "characterImage") ?? "star.fill") //!!
-        
-        //characterLevelLabel.text = "밥알 \(UserDefaults.standard.integer(forKey: "riceCount")) 개 물방울 \(UserDefaults.standard.integer(forKey: "waterCount"))개"
-        //characterLevelLabel.text = "\(characterLevel)"
         characterNameLabelAttribute()
-        
-        //characterLevelLabelAttribute()
-        
         characterLevelLabel.labelFontAttribute()
+        
         riceValue.labelFontAttribute()
         waterValue.labelFontAttribute()
-        //characterLevelLabelAttribute(riceValue: UserDefaults.standard.integer(forKey: "riceCount"))
         feedingObjectsAttribute(textFieldName: riceTextField, buttonName: riceAddButton, placeholder: "밥주세용", buttonTitle: " 밥먹기", buttonImage: "drop.circle")
         feedingObjectsAttribute(textFieldName: waterTextField, buttonName: waterAddButton, placeholder: "물주세용", buttonTitle: " 물먹기", buttonImage: "leaf.circle")
-        
-        print(feedingCalculatorArray)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,22 +67,6 @@ class CharacterDetailViewController: UIViewController {
         characterResponseLabel.text = "\(characterResponseArray[Int.random(in: 0...characterResponseArray.count - 1)]) \(UserDefaults.standard.string(forKey: "rename")!)님."
         characterResponseLabel.labelFontAttribute()
         characterResponseLabel.numberOfLines = 0
-        
-        
-        characterNameLabel.text = characterNameLabel.text == characterChange?.name ? "이름변경됨" : characterChange?.name
-        
-        //characterImageView.image == UIImage(named: characterChange!.image)
-        
-        if characterImageView.image == UIImage(named: "1-1") {
-            characterImageView.image = UIImage(named: "2-1")
-        } else if characterImageView.image == UIImage(named: "2-1") {
-            characterImageView.image = UIImage(named: "3-1")
-        } else if characterImageView.image == UIImage(named: "3-1") {
-            characterImageView.image = UIImage(named: "1-1")
-        } else {
-    
-        }
-        
     }
 
     func navigationItemAttribute(nickname: String) {
@@ -132,9 +92,7 @@ class CharacterDetailViewController: UIViewController {
     
     
     func characterLevelLabelAttribute() {
-        riceValue.text = "밥알 0 개"
-        characterLevelLabel.text = "\(feedingCalculatorArray[0])"
-        UserDefaults.standard.removeObject(forKey: "riceCount")
+        
     }
     
 //    func characterLevelLabelAttribute(level: Int, riceValue: Int, waterValue: Int) {
@@ -163,21 +121,69 @@ class CharacterDetailViewController: UIViewController {
     
     //2!!버튼을 몇차례 누르고 텍스트필드에 값이 있는 상태에서 텍스트필드에 직접입력하는 경우 직접입력한 값을  UserDefaults에 따로 저장해야하나?
     @IBAction func riceAddButtonClicked(_ sender: UIButton) {
-        feedingCalculatorArray[sender.tag] += 1
+        if let rice = riceTextField.text {
+            UserDefaults.standard.set(riceTextField.text, forKey: "riceCount")
+            if UserDefaults.standard.integer(forKey: "riceCount") < 100 { //밥알 갯수 100개 제한
+                feedingCalculatorArray[sender.tag] += UserDefaults.standard.integer(forKey: "riceCount")
+            }
+        }
+        else {
+            feedingCalculatorArray[sender.tag] += 1
+        }
         riceValue.text = "밥알 \(feedingCalculatorArray[sender.tag]) 개"
+        characterLevelLabel.text = "LV\((feedingCalculatorArray[0] / 5) + (feedingCalculatorArray[1] / 2))"
         
-        UserDefaults.standard.set(feedingCalculatorArray[sender.tag], forKey: "riceCount")
-
+        //UserDefaults.standard.set(feedingCalculatorArray[sender.tag], forKey: "riceCount")
+        
+        //riceValue.text = "밥알 \(feedingCalculatorArray[sender.tag]) 개"
         print(feedingCalculatorArray)
-        print(UserDefaults.standard.integer(forKey: "riceCount"))
     }
     
     @IBAction func waterAddButtonClicked(_ sender: UIButton) {
-        feedingCalculatorArray[sender.tag] += 1
-        waterValue.text = "\(feedingCalculatorArray[sender.tag])"
+        if let water = waterTextField.text { //텍스트필드 값 있으면 텍스트필드값 더하기
+            UserDefaults.standard.set(waterTextField.text, forKey: "waterCount")
+            if UserDefaults.standard.integer(forKey: "waterCount") < 50 { //물방울 갯수 50개 제한
+                feedingCalculatorArray[sender.tag] += UserDefaults.standard.integer(forKey: "waterCount")
+            }
+        }
+        else if waterTextField.text == "" { //텍스트필드 값 없으면 +1 더하기
+            feedingCalculatorArray[sender.tag] += 1
+        } else {
+            
+        }
+    
+        waterValue.text = "물방울 \(feedingCalculatorArray[sender.tag]) 개"
+        characterLevelLabel.text = "LV\((feedingCalculatorArray[0] / 5) + (feedingCalculatorArray[1] / 2))"
         
-        UserDefaults.standard.set(feedingCalculatorArray[sender.tag], forKey: "waterCount")
-        print(feedingCalculatorArray)
+        //UserDefaults.standard.set(feedingCalculatorArray[sender.tag], forKey: "waterCount")
+        
+        //var waterLevel = UserDefaults.standard.integer(forKey: "waterCount") / 2
+        //characterLevelLabel.text = "\(UserDefaults.standard.integer(forKey: "riceCount") + (UserDefaults.standard.integer(forKey: "waterCount") / 2))"
+        print(UserDefaults.standard.integer(forKey: "waterCount"))
+        print(feedingCalculatorArray[0] + feedingCalculatorArray[1])
+    
+        
+        if UserDefaults.standard.string(forKey: "characterName") == "따끔따끔 다마고치" {
+        if feedingCalculatorArray[0] + feedingCalculatorArray[1] > 0 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 20 {
+            characterImageView.image = UIImage(named: "1-1")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 20 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 30 {
+            characterImageView.image = UIImage(named: "1-2")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 30 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 40 {
+            characterImageView.image = UIImage(named: "1-3")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 40 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 50 {
+            characterImageView.image = UIImage(named: "1-4")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 50 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 60 {
+            characterImageView.image = UIImage(named: "1-5")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 60 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 70 {
+            characterImageView.image = UIImage(named: "1-6")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 70 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 80 {
+            characterImageView.image = UIImage(named: "1-7")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 80 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 90 {
+            characterImageView.image = UIImage(named: "1-8")
+        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 100 {
+            characterImageView.image = UIImage(named: "1-9")
+    }
+        }
     }
     
     
@@ -196,8 +202,9 @@ class CharacterDetailViewController: UIViewController {
     }
     @IBAction func returnInputWater(_ sender: UITextField) {
         let value = Int(waterTextField.text!) ?? 0
-        waterTextField.text = "물방울 \(sender) 개"
+        //waterTextField.text = "물방울 \(sender) 개"
         view.endEditing(true)
     }
     
 }
+

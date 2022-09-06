@@ -48,7 +48,7 @@ class CharaterPopUpViewController: UIViewController {
     }
     
     func popUpCharacterIntroductionAttribute() {
-        popUpCharacterIntroduction.text = characterIntro[0]
+        popUpCharacterIntroduction.text = UserDefaults.standard.string(forKey: "characterIntro")
         popUpCharacterIntroduction.numberOfLines = 0
         popUpCharacterIntroduction.labelFontAttribute()
     }

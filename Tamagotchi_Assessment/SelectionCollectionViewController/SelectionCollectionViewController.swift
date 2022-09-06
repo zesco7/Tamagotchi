@@ -76,6 +76,7 @@ class SelectionCollectionViewController: UICollectionViewController {
         let data = characterData.characterGeneralData[indexPath.item] //!!
         UserDefaults.standard.set(data.image, forKey: "characterImage")
         UserDefaults.standard.set(data.name, forKey: "characterName")
+        UserDefaults.standard.set(data.intro, forKey: "characterIntro")
         
         if indexPath.item <= 2 {
         let sb = UIStoryboard(name: "Main", bundle: nil)
