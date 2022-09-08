@@ -11,7 +11,7 @@ import UIKit
  -. 왜 UserDefaults.standard.string(forKey: "rename")이 옵셔널인지?
  
  */
-class RenameViewController: UIViewController {
+class RenameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var renameTextField: UITextField!
     override func viewDidLoad() {
@@ -22,16 +22,20 @@ class RenameViewController: UIViewController {
         view.backgroundColor = .backgroundColor
         
         renameTextFieldAttribute()
-        
         renameTextField.text = UserDefaults.standard.string(forKey: "rename")
+        renameTextField.delegate = self
+        
     }
     
     @objc //이름저장 추가위치
     func rightBarButtonItemClicked() {
         UserDefaults.standard.set(renameTextField.text, forKey: "rename")
         
-        //CharacterDetailViewController: 네비타이틀, 말풍선
-        //SettingTableViewController: 내이름 설정하기
+        let alert = UIAlertController(title: "저장완료", message: "이름이 변경되었습니다.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(ok)
+        present(alert, animated: true)
+        navigationItem.title = "\(UserDefaults.standard.string(forKey: "rename")!)님 이름 정하기"
     }
     
     func renameTextFieldAttribute() {
@@ -42,6 +46,17 @@ class RenameViewController: UIViewController {
         renameTextField.layer.addSublayer((border))
         renameTextField.textFieldFontAttribute()
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            guard let text = textField.text else {return false}
+            
+            // 최대 글자수 이상을 입력한 이후에는 중간에 다른 글자를 추가할 수 없게끔 작동
+            if text.count >= 6 && range.length == 0 && range.location < 7 {
+                return false
+            }
+            
+            return true
+        }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)

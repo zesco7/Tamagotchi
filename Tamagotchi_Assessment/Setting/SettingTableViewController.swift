@@ -24,9 +24,6 @@ class SettingTableViewController: UITableViewController, UIApplicationDelegate {
         navigationItem.title = "설정"
 
     }
-    func dataResetAlert() {
-        
-    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingInfo.SettingGeneralData.count
@@ -48,15 +45,16 @@ class SettingTableViewController: UITableViewController, UIApplicationDelegate {
             self.navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.row == 1 { //!!메인화면 전환
+            
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let sceneDelegate =  windowScene?.delegate as? SceneDelegate
             let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "CharacterDetailViewController") as! CharacterDetailViewController
+            let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
             let navi = UINavigationController(rootViewController: vc)
             sceneDelegate?.window?.rootViewController = navi
             sceneDelegate?.window?.makeKeyAndVisible()
             
-            vc.characterChange = characterData.characterGeneralData[indexPath.row]
+            //vc.characterChange = characterData.characterGeneralData[indexPath.row]
         
         } else if indexPath.row == 2 { //1!!데이터초기화
             let alert = UIAlertController(title: "데이터 초기화", message: "초기화 된 데이터는 복구할 수 없으니 참고해주세요. 초기화 하시겠어요?", preferredStyle: .alert)

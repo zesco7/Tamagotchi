@@ -72,6 +72,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz1-H8-HvZ">
+                                        <rect key="frame" x="0.0" y="407" width="334" height="1"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="PdJ-X4-Keh"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -79,11 +86,14 @@
                                     <constraint firstAttribute="trailing" secondItem="Z03-ef-TPc" secondAttribute="trailing" constant="30" id="2m3-cs-SQI"/>
                                     <constraint firstItem="YSR-6I-Psc" firstAttribute="top" secondItem="FzC-wd-tCW" secondAttribute="bottom" constant="10" id="3Ce-if-3Tt"/>
                                     <constraint firstItem="Z03-ef-TPc" firstAttribute="centerY" secondItem="Oa0-iW-wgW" secondAttribute="centerY" multiplier="1.2" id="67a-ms-Wg8"/>
+                                    <constraint firstAttribute="trailing" secondItem="rz1-H8-HvZ" secondAttribute="trailing" id="QXu-om-Dlc"/>
+                                    <constraint firstItem="rz1-H8-HvZ" firstAttribute="leading" secondItem="Oa0-iW-wgW" secondAttribute="leading" id="SaN-gv-kjm"/>
                                     <constraint firstItem="lTv-Iv-JyP" firstAttribute="width" secondItem="sgd-wy-Hh1" secondAttribute="width" id="TjE-JM-jpy"/>
                                     <constraint firstAttribute="trailing" secondItem="FzC-wd-tCW" secondAttribute="trailing" constant="20" id="XeW-uh-cay"/>
                                     <constraint firstAttribute="width" secondItem="Oa0-iW-wgW" secondAttribute="height" multiplier="17:23" id="YFd-25-U1o"/>
                                     <constraint firstItem="Z03-ef-TPc" firstAttribute="leading" secondItem="Oa0-iW-wgW" secondAttribute="leading" constant="30" id="aGp-rN-HKi"/>
                                     <constraint firstItem="YSR-6I-Psc" firstAttribute="leading" secondItem="Oa0-iW-wgW" secondAttribute="leading" id="cKy-bH-SQM"/>
+                                    <constraint firstItem="YSR-6I-Psc" firstAttribute="top" secondItem="rz1-H8-HvZ" secondAttribute="bottom" id="crC-PZ-0ht"/>
                                     <constraint firstItem="sgd-wy-Hh1" firstAttribute="centerX" secondItem="Oa0-iW-wgW" secondAttribute="centerX" id="djg-mQ-Yxe"/>
                                     <constraint firstItem="sgd-wy-Hh1" firstAttribute="top" secondItem="Oa0-iW-wgW" secondAttribute="top" constant="40" id="h4A-bJ-3nB"/>
                                     <constraint firstItem="sgd-wy-Hh1" firstAttribute="width" secondItem="Oa0-iW-wgW" secondAttribute="width" multiplier="0.45" id="jb1-6z-HNl"/>
@@ -104,6 +114,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="popUpButtonTopLine" destination="rz1-H8-HvZ" id="6fr-lW-iJf"/>
                         <outlet property="popUpCancelButton" destination="Lxx-9K-3BD" id="lYd-8i-eHR"/>
                         <outlet property="popUpCharacterImageView" destination="sgd-wy-Hh1" id="u2m-HX-w4K"/>
                         <outlet property="popUpCharacterIntroduction" destination="FzC-wd-tCW" id="QYJ-0A-oB1"/>

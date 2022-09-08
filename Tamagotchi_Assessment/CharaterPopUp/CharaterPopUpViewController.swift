@@ -24,15 +24,15 @@ class CharaterPopUpViewController: UIViewController {
     @IBOutlet weak var popUpCharacterIntroduction: UILabel!
     @IBOutlet weak var popUpCancelButton: UIButton!
     @IBOutlet weak var popUpStartButton: UIButton!
+    @IBOutlet weak var popUpButtonTopLine: UIView!
     
     let characterData = CharacterData()
-    
     var characterIntro = ["저는 따끔따끔 다마고치입니다. 저를 키워보시겠어요? 물만 주면 알아서 잘크는 아이랍니다. 호호.", "저는 방실방실 다마고치입니다. 저를 키워보시겠어요? 밥만 주면 알아서 잘크는 아이랍니다. 호호.", "저는 반짝반짝 다마고치입니다. 저는 물도 밥도 필요없어요. 그저 선택만해주세요..."]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .init(white: 0.3, alpha: 0.3)
+        view.backgroundColor = .init(white: 0.3, alpha: 0.7)
         popUpView.layer.cornerRadius = 10
         popUpView.backgroundColor = .backgroundColor
         
@@ -40,11 +40,11 @@ class CharaterPopUpViewController: UIViewController {
         
         popUpCharacterIntroductionAttribute()
         
-        popUpCharacterImageView.image = UIImage(named: UserDefaults.standard.string(forKey: "characterImage") ?? "star.fill") //!!
+        popUpCharacterImageView.image = UIImage(named: "\(UserDefaults.standard.string(forKey: "characterImage")!)-6")
+        
         popUpCharacterNameLabelAttribute()
         
         popUpButtonAttribute()
-        print("1")
     }
     
     func popUpCharacterIntroductionAttribute() {
@@ -64,11 +64,13 @@ class CharaterPopUpViewController: UIViewController {
     func popUpButtonAttribute() {
         popUpCancelButton.setTitle("취소", for: .normal)
         popUpCancelButton.backgroundColor = .systemGray3
+        popUpCancelButton.layer.cornerRadius = 10
         popUpCancelButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
         popUpStartButton.setTitle("시작하기", for: .normal)
         popUpStartButton.setTitleColor(UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1), for: .normal)
+        popUpButtonTopLine.backgroundColor = .systemGray3
         
-        
+        popUpCancelButton.layer.maskedCorners = CACornerMask.layerMinXMaxYCorner
     }
     
     //
@@ -77,16 +79,25 @@ class CharaterPopUpViewController: UIViewController {
         let sceneDelegate =  windowScene?.delegate as? SceneDelegate
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
-        sceneDelegate?.window?.rootViewController = vc
+        let navi = UINavigationController(rootViewController: vc)
+        sceneDelegate?.window?.rootViewController = navi
         sceneDelegate?.window?.makeKeyAndVisible()
+    
     }
     
     @IBAction func popUpStartButtonClicked(_ sender: UIButton) {
+ 
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CharacterDetailViewController") as! CharacterDetailViewController
         let navi = UINavigationController(rootViewController: vc)
         navi.modalPresentationStyle = .fullScreen
         present(navi, animated: true)
+        
+        /*
+        vc.riceValue.text = "\(UserDefaults.standard.integer(forKey: "riceCount"))"
+        vc.waterValue.text = "\(UserDefaults.standard.integer(forKey: "waterCount"))"
+        vc.characterLevelLabel.text = "\((UserDefaults.standard.integer(forKey: "riceCount") / 5) + (UserDefaults.standard.integer(forKey: "waterCount") / 2))"
+         */
     }
     
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54414EC55AB91E336A3E20C1 /* Pods_Tamagotchi_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A925C6838EE3FCE75C5FBF /* Pods_Tamagotchi_Assessment.framework */; };
 		9801638728C34D6800B77230 /* CharacterInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801638628C34D6800B77230 /* CharacterInformation.swift */; };
 		9801639228C35A1B00B77230 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801639128C35A1B00B77230 /* UIColor+Extension.swift */; };
 		9801639628C3609500B77230 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9801639528C3609500B77230 /* UILabel+Extension.swift */; };
@@ -21,8 +22,6 @@
 		9863B10C2891310A0080E247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10A2891310A0080E247 /* Main.storyboard */; };
 		9863B10E2891310B0080E247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10D2891310B0080E247 /* Assets.xcassets */; };
 		9863B1112891310B0080E247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10F2891310B0080E247 /* LaunchScreen.storyboard */; };
-		98D9986828C62B0A00DBA74F /* CharacterImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9986728C62B0A00DBA74F /* CharacterImageData.swift */; };
-		98D9986A28C62B2100DBA74F /* CharacterImageName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D9986928C62B2100DBA74F /* CharacterImageName.swift */; };
 		98DAADB928C32F0900720407 /* SelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */; };
 		98DAADBB28C32F7200720407 /* CharaterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADBA28C32F7200720407 /* CharaterPopUpViewController.swift */; };
 		98DAADBD28C32F8200720407 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */; };
@@ -33,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		43A925C6838EE3FCE75C5FBF /* Pods_Tamagotchi_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tamagotchi_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9801638628C34D6800B77230 /* CharacterInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInformation.swift; sourceTree = "<group>"; };
 		9801639128C35A1B00B77230 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		9801639528C3609500B77230 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -49,8 +49,6 @@
 		9863B10D2891310B0080E247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9863B1102891310B0080E247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9863B1122891310B0080E247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		98D9986728C62B0A00DBA74F /* CharacterImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageData.swift; sourceTree = "<group>"; };
-		98D9986928C62B2100DBA74F /* CharacterImageName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageName.swift; sourceTree = "<group>"; };
 		98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		98DAADBA28C32F7200720407 /* CharaterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaterPopUpViewController.swift; sourceTree = "<group>"; };
 		98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +56,8 @@
 		98DAADC228C3302D00720407 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		98DAADC428C330DF00720407 /* SelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		98DAADC628C330FA00720407 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		BF2813DC56106EF21CA37B76 /* Pods-Tamagotchi_Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi_Assessment.debug.xcconfig"; path = "Target Support Files/Pods-Tamagotchi_Assessment/Pods-Tamagotchi_Assessment.debug.xcconfig"; sourceTree = "<group>"; };
+		F39926D685064DDEF0C031F6 /* Pods-Tamagotchi_Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi_Assessment.release.xcconfig"; path = "Target Support Files/Pods-Tamagotchi_Assessment/Pods-Tamagotchi_Assessment.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +65,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54414EC55AB91E336A3E20C1 /* Pods_Tamagotchi_Assessment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27800C696FA93BF8CE307990 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43A925C6838EE3FCE75C5FBF /* Pods_Tamagotchi_Assessment.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9801638828C3581C00B77230 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +96,8 @@
 			children = (
 				9863B1032891310A0080E247 /* Tamagotchi_Assessment */,
 				9863B1022891310A0080E247 /* Products */,
+				F354D4BBC04803796E312A24 /* Pods */,
+				27800C696FA93BF8CE307990 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,8 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */,
-				98D9986728C62B0A00DBA74F /* CharacterImageData.swift */,
-				98D9986928C62B2100DBA74F /* CharacterImageName.swift */,
 			);
 			path = CharaterDetail;
 			sourceTree = "<group>";
@@ -166,6 +175,15 @@
 			path = Rename;
 			sourceTree = "<group>";
 		};
+		F354D4BBC04803796E312A24 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BF2813DC56106EF21CA37B76 /* Pods-Tamagotchi_Assessment.debug.xcconfig */,
+				F39926D685064DDEF0C031F6 /* Pods-Tamagotchi_Assessment.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9863B1152891310B0080E247 /* Build configuration list for PBXNativeTarget "Tamagotchi_Assessment" */;
 			buildPhases = (
+				B0E46A58805706004207BFB5 /* [CP] Check Pods Manifest.lock */,
 				9863B0FD2891310A0080E247 /* Sources */,
 				9863B0FE2891310A0080E247 /* Frameworks */,
 				9863B0FF2891310A0080E247 /* Resources */,
+				9A09D3939E7526BF3389EC29 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -210,6 +230,9 @@
 				Base,
 			);
 			mainGroup = 9863B0F82891310A0080E247;
+			packageReferences = (
+				9828993A28CA1433000F4040 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 9863B1022891310A0080E247 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +255,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9A09D3939E7526BF3389EC29 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tamagotchi_Assessment/Pods-Tamagotchi_Assessment-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tamagotchi_Assessment/Pods-Tamagotchi_Assessment-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tamagotchi_Assessment/Pods-Tamagotchi_Assessment-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0E46A58805706004207BFB5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tamagotchi_Assessment-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9863B0FD2891310A0080E247 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -241,7 +306,6 @@
 				98DAADBD28C32F8200720407 /* CharacterDetailViewController.swift in Sources */,
 				98581A0528C4AB470057FE3A /* SettingList.swift in Sources */,
 				98DAADC528C330DF00720407 /* SelectionCollectionViewCell.swift in Sources */,
-				98D9986A28C62B2100DBA74F /* CharacterImageName.swift in Sources */,
 				98581A0728C4ABA40057FE3A /* SettingData.swift in Sources */,
 				98DAADC328C3302D00720407 /* SettingTableViewController.swift in Sources */,
 				9801639228C35A1B00B77230 /* UIColor+Extension.swift in Sources */,
@@ -253,7 +317,6 @@
 				9801639628C3609500B77230 /* UILabel+Extension.swift in Sources */,
 				9801638728C34D6800B77230 /* CharacterInformation.swift in Sources */,
 				9863B1092891310A0080E247 /* ViewController.swift in Sources */,
-				98D9986828C62B0A00DBA74F /* CharacterImageData.swift in Sources */,
 				9863B1052891310A0080E247 /* AppDelegate.swift in Sources */,
 				9863B1072891310A0080E247 /* SceneDelegate.swift in Sources */,
 				98DAADBB28C32F7200720407 /* CharaterPopUpViewController.swift in Sources */,
@@ -398,6 +461,7 @@
 		};
 		9863B1162891310B0080E247 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF2813DC56106EF21CA37B76 /* Pods-Tamagotchi_Assessment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -428,6 +492,7 @@
 		};
 		9863B1172891310B0080E247 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F39926D685064DDEF0C031F6 /* Pods-Tamagotchi_Assessment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -478,6 +543,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9828993A28CA1433000F4040 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 9863B0F92891310A0080E247 /* Project object */;
 }

@@ -12,8 +12,6 @@ private let reuseIdentifier = "Cell"
 class SelectionCollectionViewController: UICollectionViewController {
     
     let characterData = CharacterData()
-    var characterNameArray = ["따끔따끔 다마고치", "방실방실 다마고치", "반짝반짝 다마고치", "준비중이에요"]
-    var characterImageArray = ["1-6", "2-6", "3-6", "noImage"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,48 +38,31 @@ class SelectionCollectionViewController: UICollectionViewController {
         
         let dataInfo = characterData.characterGeneralData[indexPath.row]
         cell.characterNameLabel.text = dataInfo.name
-        cell.characterImageView.image = UIImage(named: dataInfo.image)
-        
-        
-        
-        /*
-        if indexPath.item == 0 {
-            cell.characterNameLabel.text = characterNameArray[0]
-        } else if indexPath.item == 1 {
-            cell.characterNameLabel.text = characterNameArray[1]
-        } else if indexPath.item == 2 {
-            cell.characterNameLabel.text = characterNameArray[2]
+        if indexPath.item <= 2 { //!!item index에 따라 이미지설정
+        cell.characterImageView.image = UIImage(named: "\(dataInfo.image)-6")
         } else {
-            cell.characterNameLabel.text = characterNameArray[3]
+            cell.characterImageView.image = UIImage(named: "noImage")
         }
-        
-        if indexPath.item == 0 {
-            cell.characterImageView.image = UIImage(named: characterImageArray[0])
-        } else if indexPath.item == 1 {
-            cell.characterImageView.image = UIImage(named: characterImageArray[1])
-        } else if indexPath.item == 2 {
-            cell.characterImageView.image = UIImage(named: characterImageArray[2])
-        } else {
-            cell.characterImageView.image = UIImage(named: characterImageArray[3])
-        }
-        */
-        
         cell.configureCell()
 
         return cell
     }
+ 
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let data = characterData.characterGeneralData[indexPath.item] //!!
+    
         UserDefaults.standard.set(data.image, forKey: "characterImage")
         UserDefaults.standard.set(data.name, forKey: "characterName")
         UserDefaults.standard.set(data.intro, forKey: "characterIntro")
-        
+        print(UserDefaults.standard.string(forKey: "characterImage"))
+
         if indexPath.item <= 2 {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "CharaterPopUpViewController") as! CharaterPopUpViewController
-        vc.modalPresentationStyle = .fullScreen
+            vc.modalPresentationStyle = .overFullScreen
+
         present(vc, animated: true)
         } else {
             return
