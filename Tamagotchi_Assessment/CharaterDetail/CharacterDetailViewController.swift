@@ -31,19 +31,12 @@ class CharacterDetailViewController: UIViewController {
     @IBOutlet weak var waterAddButton: UIButton!
     
     var characterResponseArray = ["복습안했으면 빨리하세요. 복습해야 실력이 늘어요.", "만나서 반갑습니다.", "주말 잘보내세요."]
-    var feedingCalculatorArray = [0, 0]
-    var levelValueArray = [0]
-    
     var characterChange: CharacterInformation?
     var characterString: String?
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .backgroundColor
-        
-        navigationItemAttribute(nickname: "\(UserDefaults.standard.string(forKey: "rename")!)")
         
         characterInformationRefresh()
         
@@ -58,11 +51,11 @@ class CharacterDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear")
-        navigationItemAttribute(nickname: "\(UserDefaults.standard.string(forKey: "rename")!)")
-        
+        //optional binding 대신 nil-coalescing 사용하여 이름설정안했을때 이름 표시
+        navigationItemAttribute(nickname: "\(UserDefaults.standard.string(forKey: "rename") ?? "대장")")
         characterResponseImageView.image = UIImage(named: "bubble")
         var characterResponseArray = ["복습안했으면 빨리하세요. 복습해야 실력이 늘어요.", "만나서 반갑습니다.", "주말 잘보내세요."]
-        characterResponseLabel.text = "\(characterResponseArray[Int.random(in: 0...characterResponseArray.count - 1)]) \(UserDefaults.standard.string(forKey: "rename")!)님."
+        characterResponseLabel.text = "\(characterResponseArray[Int.random(in: 0...characterResponseArray.count - 1)]) \(UserDefaults.standard.string(forKey: "rename") ?? "대장")님."
         characterResponseLabel.labelFontAttribute()
         characterResponseLabel.numberOfLines = 0
     }
@@ -88,16 +81,6 @@ class CharacterDetailViewController: UIViewController {
         characterNameLabel.labelBorderAttribute()
     }
     
-    
-    func characterLevelLabelAttribute() {
-        
-    }
-    
-//    func characterLevelLabelAttribute(level: Int, riceValue: Int, waterValue: Int) {
-//        characterLevelLabel.text = "LV\(level), 밥알 \(riceValue)개, 물방울 \(waterValue)개"
-//        characterLevelLabel.labelFontAttribute()
-//    }
-    
     func feedingObjectsAttribute(textFieldName: UITextField, buttonName: UIButton, placeholder: String, buttonTitle: String, buttonImage: String) {
         textFieldName.placeholder = placeholder
         textFieldName.borderStyle = .none
@@ -118,41 +101,42 @@ class CharacterDetailViewController: UIViewController {
     }
     
     func characterInformationRefresh() {
-        characterLevelLabel.text = "LV\(levelValueArray[0] + 1)"
-        riceValue.text = "밥알 \(feedingCalculatorArray[0])개"
-        waterValue.text = "물방울 \(feedingCalculatorArray[1])개"
+        let levelResult = (UserDefaults.standard.integer(forKey: "totalRiceCount") / 5) + (UserDefaults.standard.integer(forKey: "totalWaterCount") / 2)
+        characterLevelLabel.text = "LV\(levelResult)"
+        riceValue.text = "밥알 \(UserDefaults.standard.integer(forKey: "totalRiceCount"))개"
+        waterValue.text = "물방울 \(UserDefaults.standard.integer(forKey: "totalWaterCount"))개"
         
         let characterType = UserDefaults.standard.string(forKey: "characterImage")!
         characterImageView.image = UIImage(named: "\(characterType)-1")
         
-        if levelValueArray[0] >= 0 && levelValueArray[0] < 20 {
+        if levelResult >= 0 && levelResult < 20 {
             characterLevelLabel.text = "LV1"
             characterImageView.image = UIImage(named: "\(characterType)-1")
-        } else if levelValueArray[0] >= 20 && levelValueArray[0] < 30 {
+        } else if levelResult >= 20 && levelResult < 30 {
             characterLevelLabel.text = "LV2"
             characterImageView.image = UIImage(named: "\(characterType)-2")
-        } else if levelValueArray[0] >= 30 && levelValueArray[0] < 40 {
+        } else if levelResult >= 30 && levelResult < 40 {
             characterLevelLabel.text = "LV3"
             characterImageView.image = UIImage(named: "\(characterType)-3")
-        } else if levelValueArray[0] >= 40 && levelValueArray[0] < 50 {
+        } else if levelResult >= 40 && levelResult < 50 {
             characterLevelLabel.text = "LV4"
             characterImageView.image = UIImage(named: "\(characterType)-4")
-        } else if levelValueArray[0] >= 50 && levelValueArray[0] < 60 {
+        } else if levelResult >= 50 && levelResult < 60 {
             characterLevelLabel.text = "LV5"
             characterImageView.image = UIImage(named: "\(characterType)-5")
-        } else if levelValueArray[0] >= 60 && levelValueArray[0] < 70 {
+        } else if levelResult >= 60 && levelResult < 70 {
             characterLevelLabel.text = "LV6"
             characterImageView.image = UIImage(named: "\(characterType)-6")
-        } else if levelValueArray[0] >= 70 && levelValueArray[0] < 80 {
+        } else if levelResult >= 70 && levelResult < 80 {
             characterLevelLabel.text = "LV7"
             characterImageView.image = UIImage(named: "\(characterType)-7")
-        } else if levelValueArray[0] >= 80 && levelValueArray[0] < 90 {
+        } else if levelResult >= 80 && levelResult < 90 {
             characterLevelLabel.text = "LV8"
             characterImageView.image = UIImage(named: "\(characterType)-8")
-        } else if levelValueArray[0] >= 90 && levelValueArray[0] < 100 {
+        } else if levelResult >= 90 && levelResult < 100 {
             characterLevelLabel.text = "LV9"
             characterImageView.image = UIImage(named: "\(characterType)-8")
-        } else if levelValueArray[0] >= 100 {
+        } else if levelResult >= 100 {
             characterLevelLabel.text = "LV10"
             characterImageView.image = UIImage(named: "\(characterType)-9")
         } else {
@@ -162,35 +146,44 @@ class CharacterDetailViewController: UIViewController {
     
     //2!!버튼을 몇차례 누르고 텍스트필드에 값이 있는 상태에서 텍스트필드에 직접입력하는 경우 직접입력한 값을  UserDefaults에 따로 저장해야하나?
     @IBAction func riceAddButtonClicked(_ sender: UIButton) {
+        UserDefaults.standard.integer(forKey: "totalRiceCount") //처음 가져올 데이터: 버튼누르기전 밥갯수 0개
+        UserDefaults.standard.set(riceTextField.text, forKey: "riceCount") //저장할 데이터: 텍스트필드 입력값
+        
         if riceTextField.text != "" && Int(riceTextField.text!) != nil && Int(riceTextField.text!)! < 100 { //텍스트필드 조건(빈칸, 숫자, 범위)
-            UserDefaults.standard.set(riceTextField.text, forKey: "riceCount")
-                feedingCalculatorArray[sender.tag] += UserDefaults.standard.integer(forKey: "riceCount")
-            }
+            let totalRiceCount = UserDefaults.standard.integer(forKey: "totalRiceCount") + UserDefaults.standard.integer(forKey: "riceCount")
+            UserDefaults.standard.set(totalRiceCount, forKey: "totalRiceCount")
+            print(UserDefaults.standard.integer(forKey: "totalRiceCount"))
+        }
         else {
-            feedingCalculatorArray[sender.tag] += 1
+            let totalRiceCount = UserDefaults.standard.integer(forKey: "totalRiceCount") + 1
+            UserDefaults.standard.set(totalRiceCount, forKey: "totalRiceCount")
         }
         
-        riceValue.text = "밥알 \(feedingCalculatorArray[sender.tag]) 개"
-        levelValueArray[0] = (feedingCalculatorArray[0] / 5) + (feedingCalculatorArray[1] / 2)
-        characterLevelLabel.text = "LV\(levelValueArray[0])"
-        
+        riceValue.text = "밥알 \(UserDefaults.standard.integer(forKey: "totalRiceCount")) 개"
+        let levelResultForRice = (UserDefaults.standard.integer(forKey: "totalRiceCount") / 5) + (UserDefaults.standard.integer(forKey: "totalWaterCount") / 2)
+        characterLevelLabel.text = "LV \(levelResultForRice)"
+        print("level:", levelResultForRice)
         characterInformationRefresh()
-        //print(UserDefaults.standard.integer(forKey: "riceCount"))
     }
     
     @IBAction func waterAddButtonClicked(_ sender: UIButton) {
-        if waterTextField.text != "" && Int(waterTextField.text!) != nil && Int(waterTextField.text!)! < 50 {
-            UserDefaults.standard.set(waterTextField.text, forKey: "waterCount")
-            feedingCalculatorArray[sender.tag] += UserDefaults.standard.integer(forKey: "waterCount")
-        }
-        else { //텍스트필드 값 없으면 +1 더하기
-            feedingCalculatorArray[sender.tag] += 1
-        }
-    
-        waterValue.text = "물방울 \(feedingCalculatorArray[sender.tag]) 개"
-        levelValueArray[0] = (feedingCalculatorArray[0] / 5) + (feedingCalculatorArray[1] / 2)
-        characterLevelLabel.text = "LV\(levelValueArray[0])"
+        UserDefaults.standard.integer(forKey: "totalWaterCount") //처음 가져올 데이터: 버튼누르기전 밥갯수 0개
+        UserDefaults.standard.set(riceTextField.text, forKey: "waterCount") //저장할 데이터: 텍스트필드 입력값
         
+        if waterTextField.text != "" && Int(waterTextField.text!) != nil && Int(waterTextField.text!)! < 50 { //텍스트필드 조건(빈칸, 숫자, 범위)
+            let totalWaterCount = UserDefaults.standard.integer(forKey: "totalWaterCount") + UserDefaults.standard.integer(forKey: "waterCount")
+            UserDefaults.standard.set(totalWaterCount, forKey: "totalWaterCount")
+            print(UserDefaults.standard.integer(forKey: "totalWaterCount"))
+        }
+        else {
+            let totalWaterCount = UserDefaults.standard.integer(forKey: "totalWaterCount") + 1
+            UserDefaults.standard.set(totalWaterCount, forKey: "totalWaterCount")
+        }
+
+        waterValue.text = "물방울 \(UserDefaults.standard.integer(forKey: "totalWaterCount")) 개"
+        let levelResultForWater = (UserDefaults.standard.integer(forKey: "totalRiceCount") / 5) + (UserDefaults.standard.integer(forKey: "totalWaterCount") / 2)
+        characterLevelLabel.text = "LV \(levelResultForWater)"
+        print("level:", levelResultForWater)
         characterInformationRefresh()
     }
     

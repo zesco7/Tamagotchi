@@ -93,11 +93,6 @@ class CharaterPopUpViewController: UIViewController {
         navi.modalPresentationStyle = .fullScreen
         present(navi, animated: true)
         
-        /*
-        vc.riceValue.text = "\(UserDefaults.standard.integer(forKey: "riceCount"))"
-        vc.waterValue.text = "\(UserDefaults.standard.integer(forKey: "waterCount"))"
-        vc.characterLevelLabel.text = "\((UserDefaults.standard.integer(forKey: "riceCount") / 5) + (UserDefaults.standard.integer(forKey: "waterCount") / 2))"
-         */
     }
     
 }

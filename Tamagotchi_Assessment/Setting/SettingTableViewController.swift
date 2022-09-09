@@ -70,8 +70,9 @@ class SettingTableViewController: UITableViewController, UIApplicationDelegate {
                 sceneDelegate?.window?.rootViewController = navi
                 sceneDelegate?.window?.makeKeyAndVisible()
                 
-                UserDefaults.standard.removeObject(forKey: "riceCount")
-                UserDefaults.standard.removeObject(forKey: "waterCount")
+                for key in UserDefaults.standard.dictionaryRepresentation().keys { //UserDefaults 전체 삭제
+                            UserDefaults.standard.removeObject(forKey: key.description)
+                        }
             }
             alert.addAction(cancel)
             alert.addAction(ok)
