@@ -164,9 +164,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="returnInputRice:" destination="Cgt-Q8-nY5" eventType="editingDidEndOnExit" id="6U3-qq-uUm"/>
-                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jxw-h4-RRt">
                                 <rect key="frame" x="84" y="648.5" width="166" height="33"/>
@@ -175,9 +172,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="returnInputWater:" destination="Cgt-Q8-nY5" eventType="editingDidEndOnExit" id="8Mh-18-ySk"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9H2-FM-mak">
                                 <rect key="frame" x="260" y="610.5" width="100" height="33"/>

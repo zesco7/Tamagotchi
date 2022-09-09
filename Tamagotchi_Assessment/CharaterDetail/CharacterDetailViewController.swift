@@ -168,7 +168,7 @@ class CharacterDetailViewController: UIViewController {
     
     @IBAction func waterAddButtonClicked(_ sender: UIButton) {
         UserDefaults.standard.integer(forKey: "totalWaterCount") //처음 가져올 데이터: 버튼누르기전 밥갯수 0개
-        UserDefaults.standard.set(riceTextField.text, forKey: "waterCount") //저장할 데이터: 텍스트필드 입력값
+        UserDefaults.standard.set(waterTextField.text, forKey: "waterCount") //저장할 데이터: 텍스트필드 입력값
         
         if waterTextField.text != "" && Int(waterTextField.text!) != nil && Int(waterTextField.text!)! < 50 { //텍스트필드 조건(빈칸, 숫자, 범위)
             let totalWaterCount = UserDefaults.standard.integer(forKey: "totalWaterCount") + UserDefaults.standard.integer(forKey: "waterCount")
@@ -197,12 +197,12 @@ class CharacterDetailViewController: UIViewController {
     }
 
     @IBAction func returnInputRice(_ sender: UITextField) {
-        let value = Int(riceTextField.text!) ?? 0
-        riceTextField.text = "밥알 \(value) 개"
+        //let value = Int(riceTextField.text!) ?? 0
+        //riceTextField.text = "밥알 \(value) 개"
         view.endEditing(true)
     }
     @IBAction func returnInputWater(_ sender: UITextField) {
-        let value = Int(waterTextField.text!) ?? 0
+        //let value = Int(waterTextField.text!) ?? 0
         //waterTextField.text = "물방울 \(sender) 개"
         view.endEditing(true)
     }
