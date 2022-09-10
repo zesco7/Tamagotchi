@@ -80,8 +80,8 @@ class CharaterPopUpViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SelectionCollectionViewController") as! SelectionCollectionViewController
         let navi = UINavigationController(rootViewController: vc)
-        sceneDelegate?.window?.rootViewController = navi
-        sceneDelegate?.window?.makeKeyAndVisible()
+        
+        self.dismiss(animated: true) //직전페이지로 전환: dimiss사용(CharaterPopUpViewController->SelectionCollectionViewController)
     
     }
     
@@ -91,7 +91,7 @@ class CharaterPopUpViewController: UIViewController {
         let vc = sb.instantiateViewController(withIdentifier: "CharacterDetailViewController") as! CharacterDetailViewController
         let navi = UINavigationController(rootViewController: vc)
         navi.modalPresentationStyle = .fullScreen
-        present(navi, animated: true)
+        present(navi, animated: false) //애니메이션 효과 변경: true->false
         
     }
     

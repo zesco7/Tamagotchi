@@ -393,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyu-sL-3Ld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3271.0144927536235" y="6.6964285714285712"/>
+            <point key="canvasLocation" x="4181.159420289855" y="6.6964285714285712"/>
         </scene>
         <!--Setting Table View Controller-->
         <scene sceneID="b5T-B9-jhi">
@@ -418,10 +418,11 @@
                             <outlet property="delegate" destination="ju2-Zu-Wml" id="e4X-5E-4vy"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Cqn-XH-e2n"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1N-Wq-mZE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513.0434782608697" y="6.6964285714285712"/>
+            <point key="canvasLocation" x="2423.1884057971015" y="6.6964285714285712"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7nq-n2-TdG">

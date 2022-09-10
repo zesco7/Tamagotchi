@@ -17,7 +17,7 @@ class RenameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "\(UserDefaults.standard.string(forKey: "rename")!)님 이름 정하기"
+        navigationItem.title = "\(UserDefaults.standard.string(forKey: "rename") ?? "대장")님 이름 정하기" //found nil while unwrapping 개선: nil-coalescing사용
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(rightBarButtonItemClicked))
         view.backgroundColor = .backgroundColor
         
@@ -27,19 +27,24 @@ class RenameViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    @objc //이름저장 추가위치
+    @objc
     func rightBarButtonItemClicked() {
         UserDefaults.standard.set(renameTextField.text, forKey: "rename")
+        navigationItem.title = "\(UserDefaults.standard.string(forKey: "rename")!)님 이름 정하기"
         
         let alert = UIAlertController(title: "저장완료", message: "이름이 변경되었습니다.", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default)
+        let ok = UIAlertAction(title: "확인", style: .default) { (action) in
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "SettingTableViewController") as! SettingTableViewController
+            self.navigationController?.popViewController(animated: true)
+        }
         alert.addAction(ok)
         present(alert, animated: true)
-        navigationItem.title = "\(UserDefaults.standard.string(forKey: "rename")!)님 이름 정하기"
     }
     
     func renameTextFieldAttribute() {
         renameTextField.borderStyle = .none
+        renameTextField.placeholder = "이름을 입력해주세요!"
         let border = CALayer()
         border.frame = CGRect(x: 0, y: renameTextField.frame.size.height-1, width: renameTextField.frame.width, height: 1)
         border.backgroundColor = UIColor.init(red: 77/255, green: 106/255, blue: 120/255, alpha: 1).cgColor

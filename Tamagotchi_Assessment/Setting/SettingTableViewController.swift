@@ -87,35 +87,7 @@ class SettingTableViewController: UITableViewController, UIApplicationDelegate {
     override func viewDidDisappear(_ animated: Bool) {
         print("viewDidDisappear")
     }
-    override func viewWillAppear(_ animated: Bool) { //2!! 인덱스가 정해져 있는데 characterImageView.image와 다른 값을 어떻게 UserDefaults에 다시 넣는지? characterImageView.image와 다른 값인걸 어떻게 구분하는지?
-        print("viewWillAppear")
-        
-        /*
-        if UserDefaults.standard.string(forKey: "characterName") == "따끔따끔 다마고치" {
-        if feedingCalculatorArray[0] + feedingCalculatorArray[1] > 0 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 20 {
-            characterImageView.image = UIImage(named: "1-1")
-        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 20 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 30 {
-            characterImageView.image = UIImage(named: "1-2")
-        } else if feedingCalculatorArray[0] + feedingCalculatorArray[1] >= 30 && feedingCalculatorArray[0] + feedingCalculatorArray[1] < 40 {
-         */
-        /*
-        characterNameLabel.text = characterNameLabel.text == characterChange?.name ? "이름변경됨" : characterChange?.name
-        
-        //characterImageView.image == UIImage(named: characterChange!.image)
-        
-        if characterImageView.image == UIImage(named: "1-1") {
-            characterImageView.image = UIImage(named: "2-1")
-        } else if characterImageView.image == UIImage(named: "2-1") {
-            characterImageView.image = UIImage(named: "3-1")
-        } else if characterImageView.image == UIImage(named: "3-1") {
-            characterImageView.image = UIImage(named: "1-1")
-        } else {
     
-        }
-        */
-        //print(UIImage(named: UserDefaults.standard.string(forKey: "characterImage")!))
-        
-    }
     override func viewWillDisappear(_ animated: Bool) {
         print("viewWillDisappear")
         //var changedImage = UIImage(named: UserDefaults.standard.string(forKey: "characterImage")!)

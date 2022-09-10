@@ -116,7 +116,7 @@
 				9863B1062891310A0080E247 /* SceneDelegate.swift */,
 				9863B1082891310A0080E247 /* ViewController.swift */,
 				9863B10A2891310A0080E247 /* Main.storyboard */,
-				98DAADC828C3310500720407 /* SelectionCollectionViewController */,
+				98DAADC828C3310500720407 /* Selection */,
 				98DAADC928C3310A00720407 /* CharaterPopUp */,
 				98DAADCA28C3310C00720407 /* CharaterDetail */,
 				98DAADCB28C3310F00720407 /* Setting */,
@@ -129,7 +129,7 @@
 			path = Tamagotchi_Assessment;
 			sourceTree = "<group>";
 		};
-		98DAADC828C3310500720407 /* SelectionCollectionViewController */ = {
+		98DAADC828C3310500720407 /* Selection */ = {
 			isa = PBXGroup;
 			children = (
 				98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */,
@@ -137,7 +137,7 @@
 				9801638628C34D6800B77230 /* CharacterInformation.swift */,
 				98581A0228C464060057FE3A /* CharacterData.swift */,
 			);
-			path = SelectionCollectionViewController;
+			path = Selection;
 			sourceTree = "<group>";
 		};
 		98DAADC928C3310A00720407 /* CharaterPopUp */ = {
