@@ -69,7 +69,7 @@ class CharacterDetailViewController: UIViewController {
         }
     
     @objc
-    func rightBarButtonItemClicked() {
+    func rightBarButtonItemClicked() { //CharacterDetailViewController에 네비게이션컨트롤러 연결했기 때문에 화면전환 스타일을 present로 변경하지 않는한 SettingTableViewController에는 네비게이션 컨트롤러 연결하지 않아도 됨.
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "SettingTableViewController") as! SettingTableViewController
         self.navigationController?.pushViewController(vc, animated: true)
