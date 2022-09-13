@@ -15,7 +15,7 @@ extension UILabel {
     func labelFontAttribute() {
         self.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         self.textAlignment = .center
-        self.font = .systemFont(ofSize: 13)
+        self.font = UIFont(name: "KOTRALEAP", size: 13)
     }
     
     func labelBorderAttribute() {

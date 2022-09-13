@@ -51,12 +51,14 @@ class CharaterPopUpViewController: UIViewController {
         popUpCharacterIntroduction.text = UserDefaults.standard.string(forKey: "characterIntro")
         popUpCharacterIntroduction.numberOfLines = 0
         popUpCharacterIntroduction.labelFontAttribute()
+        popUpCharacterIntroduction.font = UIFont(name: "BMHANNAProOTF", size: 16)
+        
     }
     
     func popUpCharacterNameLabelAttribute() {
         popUpCharacterNameLabel.text = UserDefaults.standard.string(forKey: "characterName")
         popUpCharacterNameLabel.textAlignment = .center
-        popUpCharacterNameLabel.font = .systemFont(ofSize: 16, weight: .bold)
+        popUpCharacterNameLabel.labelFontAttribute()
         popUpCharacterNameLabel.textColor = UIColor(red: 77/255, green: 106/255, blue: 120/255, alpha: 1)
         popUpCharacterNameLabel.labelBorderAttribute()
     }

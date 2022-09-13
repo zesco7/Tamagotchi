@@ -22,6 +22,8 @@
 		9863B10C2891310A0080E247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10A2891310A0080E247 /* Main.storyboard */; };
 		9863B10E2891310B0080E247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10D2891310B0080E247 /* Assets.xcassets */; };
 		9863B1112891310B0080E247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9863B10F2891310B0080E247 /* LaunchScreen.storyboard */; };
+		98B8D59B28D0634E0026CA0C /* KOTRA LEAP.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98B8D59A28D0634E0026CA0C /* KOTRA LEAP.otf */; };
+		98B8D59F28D0656F0026CA0C /* BMHANNAProOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 98B8D59E28D0656F0026CA0C /* BMHANNAProOTF.otf */; };
 		98DAADB928C32F0900720407 /* SelectionCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */; };
 		98DAADBB28C32F7200720407 /* CharaterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADBA28C32F7200720407 /* CharaterPopUpViewController.swift */; };
 		98DAADBD28C32F8200720407 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */; };
@@ -49,6 +51,8 @@
 		9863B10D2891310B0080E247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9863B1102891310B0080E247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9863B1122891310B0080E247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98B8D59A28D0634E0026CA0C /* KOTRA LEAP.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "KOTRA LEAP.otf"; sourceTree = "<group>"; };
+		98B8D59E28D0656F0026CA0C /* BMHANNAProOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BMHANNAProOTF.otf; sourceTree = "<group>"; };
 		98DAADB828C32F0900720407 /* SelectionCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewController.swift; sourceTree = "<group>"; };
 		98DAADBA28C32F7200720407 /* CharaterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaterPopUpViewController.swift; sourceTree = "<group>"; };
 		98DAADBC28C32F8200720407 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 		9863B1032891310A0080E247 /* Tamagotchi_Assessment */ = {
 			isa = PBXGroup;
 			children = (
+				98B8D59928D0633E0026CA0C /* Resource */,
 				9863B1042891310A0080E247 /* AppDelegate.swift */,
 				9863B1062891310A0080E247 /* SceneDelegate.swift */,
 				9863B1082891310A0080E247 /* ViewController.swift */,
@@ -127,6 +132,15 @@
 				9863B1122891310B0080E247 /* Info.plist */,
 			);
 			path = Tamagotchi_Assessment;
+			sourceTree = "<group>";
+		};
+		98B8D59928D0633E0026CA0C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				98B8D59A28D0634E0026CA0C /* KOTRA LEAP.otf */,
+				98B8D59E28D0656F0026CA0C /* BMHANNAProOTF.otf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		98DAADC828C3310500720407 /* Selection */ = {
@@ -247,7 +261,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98B8D59B28D0634E0026CA0C /* KOTRA LEAP.otf in Resources */,
 				9863B1112891310B0080E247 /* LaunchScreen.storyboard in Resources */,
+				98B8D59F28D0656F0026CA0C /* BMHANNAProOTF.otf in Resources */,
 				9863B10E2891310B0080E247 /* Assets.xcassets in Resources */,
 				9863B10C2891310A0080E247 /* Main.storyboard in Resources */,
 			);

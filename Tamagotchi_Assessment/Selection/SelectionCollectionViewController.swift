@@ -12,11 +12,15 @@ private let reuseIdentifier = "Cell"
 class SelectionCollectionViewController: UICollectionViewController {
     
     let characterData = CharacterData()
+    let notificationCenter = UNUserNotificationCenter.current()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+
         navigationItem.title = "다마고치 선택하기"
+        
         let layout = UICollectionViewFlowLayout()
         let spacing : CGFloat = 8
         let width = UIScreen.main.bounds.width - (spacing * 4)
@@ -27,6 +31,36 @@ class SelectionCollectionViewController: UICollectionViewController {
         
         collectionView.collectionViewLayout = layout
         collectionView.backgroundColor = .backgroundColor
+        
+        requestAuthorization()
+    }
+    
+    func requestAuthorization() { //노티 권한요청
+        let authorizationOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        notificationCenter.requestAuthorization(options: authorizationOptions) { success, error in
+            if success {
+                self.sendNotification()
+            }
+        }
+    }
+    
+    func sendNotification() { //노티 내용 작성
+        //노티 메시지 작성
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "다마고치 한번 키워보실래예?"
+        notificationContent.body = "물이랑 밥만 주면 알아서 자라는 다마고치랍니다."
+        notificationContent.badge = 1
+        
+        //노티 발송 타이밍 설정
+        
+        var dateComponent = DateComponents()
+        dateComponent.minute = 10
+        //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        //노티 누적여부+메시지+타이밍 묶어서 iOS알림센터에 요청
+        let request = UNNotificationRequest(identifier: "\(Date())", content: notificationContent, trigger: trigger)
+        notificationCenter.add(request)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
